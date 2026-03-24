@@ -241,7 +241,7 @@
     <div class="card" id="introCard">
         <h1>🏮 石库门漫游指南</h1>
         <div class="subhead">守“沪”旧里，焕新游踪</div>
-        <p class="intro-text">根据游客满意度调研成果，我们发现不同游客对石库门的期待截然不同。完成下面8道简短的测试，我们将为你匹配最契合你的石库门街区，并推荐专属游览方式。</p>
+        <p class="intro-text">根据游客满意度调研成果，我们发现不同游客对石库门的期待截然不同。完成下面8道简短的测试，我们将为您匹配最契合你的石库门街区，并推荐专属游览方式。</p>
         <button id="startBtn">✨ 开始测试 ✨</button>
     </div>
 
@@ -259,10 +259,10 @@
             <div id="resultTypeBadge" class="type-badge">——</div>
             <p id="resultDesc" style="margin: 16px 0; line-height: 1.7;"></p>
             <div id="ambiguousBox" style="display: none;" class="ambiguous-notice"></div>
-            <div class="rec-title">🎯 为你推荐 · 理想石库门街区</div>
+            <div class="rec-title">🎯 为您推荐 · 理想石库门街区</div>
             <div id="recommendSpot"></div>
             <div class="rec-title" style="margin-top: 32px;">🏛️ 三种石库门改造模式</div>
-            <p style="margin-bottom: 16px; font-size:0.92rem; line-height:1.5;">了解不同类型街区的独特魅力，下次出行更对味👇</p>
+            <p style="margin-bottom: 16px; font-size:0.92rem; line-height:1.5;">了解不同类型街区的独特魅力👇</p>
             <div id="modeIntro"></div>
             <button id="resetBtn" class="btn-reset">🔄 重新测试</button>
         </div>
@@ -316,10 +316,10 @@
     
     function getTypeInfo(typeId) {
         const types = {
-            deep_culture: { name: "深度文化认同型", desc: "你对历史底蕴、建筑原真性、海派文脉有强烈的向往，渴望在游览中触摸真实的上海记忆。文化沉浸是你的核心驱动力。", badge: "📜 文化寻踪者" },
-            wordmouth_emotion: { name: "口碑情感驱动型", desc: "你容易被好口碑、朋友推荐和社交平台的优质内容打动，喜欢有温度、有故事的氛围。情感共鸣决定了你的出行选择。", badge: "💬 共鸣探索派" },
-            demand_fit: { name: "需求适配型", desc: "你追求综合体验的平衡：交通便利、餐饮舒适、环境整洁、适度文化氛围。希望街区兼顾生活感和游玩品质。", badge: "⚖️ 品质生活家" },
-            low_awareness: { name: "低感知低意愿型", desc: "你对石库门暂不了解或兴趣一般，但存在潜在触发点——一旦匹配到你关心的要素，可能成为忠实访客。", badge: "🌱 待唤醒·潜在客群" }
+            deep_culture: { name: "深度文化认同型", desc: "您对历史底蕴、建筑原真性、海派文脉有强烈的向往，渴望在游览中触摸真实的上海记忆。文化沉浸是您的核心驱动力。", badge: "📜 文化寻踪者" },
+            wordmouth_emotion: { name: "口碑情感驱动型", desc: "您容易被好口碑、朋友推荐和社交平台的优质内容打动，喜欢有温度、有故事的氛围。情感共鸣决定了您的出行选择。", badge: "💬 共鸣探索派" },
+            demand_fit: { name: "生活场景消费型", desc: "您追求综合体验的平衡：交通便利、餐饮舒适、环境整洁、适度文化氛围。希望街区兼顾生活感和游玩品质。", badge: "⚖️ 品质生活家" },
+            low_awareness: { name: "低感知低意愿型", desc: "您对石库门暂不了解或兴趣一般，但存在潜在触发点——一旦匹配到您关心的要素，可能成为忠实访客。", badge: "🌱 待唤醒·潜在客群" }
         };
         return types[typeId] || types.demand_fit;
     }
@@ -327,7 +327,7 @@
     function getRecommend(typeId, ambiguousId) {
         if ((typeId === "deep_culture" && ambiguousId === "wordmouth_emotion") ||
             (typeId === "wordmouth_emotion" && ambiguousId === "deep_culture")) {
-            return { spotName: "张园 · 田子坊 联动体验", intro: "高端文化深度 + 市井口碑热度", features: "白天在张园感受石库门建筑精华与高端文化展览，傍晚到田子坊穿弄堂、品小吃、淘文创。两种模式一次体验。", matchReason: "你同时追求文化深度和口碑氛围，推荐组合游览。" };
+            return { spotName: "张园 · 田子坊 联动体验", intro: "高端文化深度 + 市井口碑热度", features: "白天在张园感受石库门建筑精华与高端文化展览，傍晚到田子坊穿弄堂、品小吃、淘文创。两种模式一次体验。", matchReason: "您同时追求文化深度和口碑氛围，推荐组合游览。" };
         }
         if ((typeId === "demand_fit" && ambiguousId === "low_awareness") ||
             (typeId === "low_awareness" && ambiguousId === "demand_fit")) {
@@ -343,13 +343,37 @@
         return recMap[typeId] || recMap.demand_fit;
     }
     
-    function getModes() {
-        return [
-            { name: "🏛️ 整体置换·高端开发型", examples: "新天地 · 张园", desc: "完整保留建筑外观，内部功能置换为高端商业，空间开阔规整，适合追求品质与建筑美学的游客。" },
-            { name: "🎨 自发聚集·有机更新型", examples: "田子坊", desc: "保留弄堂格局与商居共生生态，以文创小店、本地小吃为主，烟火气浓，适合沉浸式漫游。" },
-            { name: "🌿 局部修缮·社区共生型", examples: "今潮8弄 · 鸿寿坊", desc: "修旧如旧，植入艺术与社区商业，氛围松弛，兼顾本地居民与游客，适合休闲社交。" }
-        ];
-    }
+function getModes() {
+    return [
+        { 
+            name: "🏛️ 整体置换·高端开发型", 
+            examples: "新天地 · 张园", 
+            desc: "完整保留建筑外观，内部功能置换为高端商业，空间开阔规整，适合追求品质与建筑美学的游客。",
+            images: [
+                "https://img2.baidu.com/it/u=3080579136,56867293&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500",
+                "https://img1.baidu.com/it/u=781039542,293136520&fm=253&fmt=auto&app=120&f=JPEG?w=750&h=500"
+            ]
+        },
+        { 
+            name: "🎨 自发聚集·有机更新型", 
+            examples: "田子坊", 
+            desc: "保留弄堂格局与商居共生生态，以文创小店、本地小吃为主，烟火气浓，适合沉浸式漫游。",
+            images: [
+                "https://img2.baidu.com/it/u=30382054,2847129121&fm=253&fmt=auto&app=138&f=JPEG?w=574&h=356",
+                "https://img1.baidu.com/it/u=1051581571,1040188895&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=333"
+            ]
+        },
+        { 
+            name: "🌿 局部修缮·社区共生型", 
+            examples: "今潮8弄 · 鸿寿坊", 
+            desc: "修旧如旧，植入艺术与社区商业，氛围松弛，兼顾本地居民与游客，适合休闲社交。",
+            images: [
+                "https://img0.baidu.com/it/u=1920124073,2019954107&fm=253&fmt=auto&app=120&f=JPEG?w=775&h=500",
+                "https://img2.baidu.com/it/u=1486317557,2162555080&fm=253&fmt=auto&app=138&f=JPEG?w=784&h=500"
+            ]
+        }
+    ];
+}
     
     function showResult() {
         const { main, ambiguous } = computeType();
@@ -365,9 +389,9 @@
             const ambInfo = getTypeInfo(ambiguous);
             typeName = mainInfo.name + " / " + ambInfo.name;
             badge = "🔀 融合型 · " + mainInfo.badge + " + " + ambInfo.badge;
-            desc = "你既像是「" + mainInfo.name + "」，又像是「" + ambInfo.name + "」。\n\n" + mainInfo.desc + "\n\n同时也契合：" + ambInfo.desc;
+            desc = "您既像是「" + mainInfo.name + "」，又像是「" + ambInfo.name + "」。\n\n" + mainInfo.desc + "\n\n同时也契合：" + ambInfo.desc;
             document.getElementById('ambiguousBox').style.display = 'block';
-            document.getElementById('ambiguousBox').innerHTML = '🔍 你的测试结果处于边界区域，同时具备两种类型的特征。下面的推荐为你融合了两类偏好。';
+            document.getElementById('ambiguousBox').innerHTML = '🔍 您的测试结果处于边界区域，同时具备两种类型的特征。下面的推荐为您融合了两类偏好。';
         } else {
             document.getElementById('ambiguousBox').style.display = 'none';
         }
@@ -386,15 +410,18 @@
             </div>
         `;
         
-        let modesHtml = '';
-        getModes().forEach(m => {
-            modesHtml += `<div class="mode-intro-item">
-                <strong style="font-size:1.05rem;">${m.name}</strong>
-                <span class="mode-examples">${m.examples}</span>
-                <p>${m.desc}</p>
-            </div>`;
-        });
-        document.getElementById('modeIntro').innerHTML = modesHtml;
+let modesHtml = '';
+getModes().forEach(m => {
+    modesHtml += `<div class="mode-intro-item" style="margin-bottom: 32px;">
+        <strong style="font-size:1.05rem;">${m.name}</strong>
+        <span class="mode-examples" style="font-size:0.85rem; color:#8b6946; display:block; margin-top:4px;">${m.examples}</span>
+        <p style="margin-top: 8px; font-size:0.92rem; line-height:1.5;">${m.desc}</p>
+        <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+${m.images.map(imgUrl => `<img src="${imgUrl}" style="width: calc(50% - 6px); border-radius: 16px; max-height: 200px; object-fit: contain; background: #f0ebe2;" loading="lazy" onerror="this.style.display='none'">`).join('')}
+        </div>
+    </div>`;
+});
+document.getElementById('modeIntro').innerHTML = modesHtml;
         
         document.getElementById('introCard').style.display = 'none';
         document.getElementById('quizPanel').style.display = 'none';
